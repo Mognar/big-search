@@ -192,31 +192,31 @@ def my_form_post():
         stringchunks = list(chunks(result, halflist))
         string = []
         for f in stringchunks:
-            stringy = ' OR '.join(f)
+            stringy = '+OR+'.join(f)
             if j['result']['items'][0]['class'] == "":
                 if j['result']['items'][0]['attribute'] == "TPG":
-                    strings = 'topic_ses:('+stringy+") session:17/19"
+                    strings = 'https://search.parliament.uk/search?q=topic_ses:('+stringy+") session:17/19"
                     string.append(strings)
                 else:
-                    strings = 'subject_ses:('+stringy+") session:17/19"
+                    strings = 'https://search.parliament.uk/search?q=subject_ses:('+stringy+") session:17/19"
                     string.append(strings)
             elif j['result']['items'][0]['class'] == "TPG":
-                strings = 'topic_ses:('+stringy+") session:17/19"
+                strings = 'https://search.parliament.uk/search?q=topic_ses:('+stringy+") session:17/19"
                 string.append(strings)
             else:
-                strings = 'subject_ses:('+stringy+") session:17/19"
+                strings = 'https://search.parliament.uk/search?q=subject_ses:('+stringy+") session:17/19"
                 string.append(strings)
     else:
-        stringy = ' OR '.join(result)
+        stringy = '+OR+'.join(result)
         if j['result']['items'][0]['class'] == "":
             if j['result']['items'][0]['attribute'] == "TPG":
-                string = 'topic_ses:('+stringy+") session:17/19"
+                string = 'https://search.parliament.uk/search?q=topic_ses:('+stringy+") session:17/19"
             else:
-                string = 'subject_ses:('+stringy+") session:17/19"
+                string = 'https://search.parliament.uk/search?q=subject_ses:('+stringy+") session:17/19"
         elif j['result']['items'][0]['class'] == "TPG":
-            string = 'topic_ses:('+stringy+") session:17/19"
+            string = 'https://search.parliament.uk/search?q=topic_ses:('+stringy+") session:17/19"
         else:
-            string = 'subject_ses:('+stringy+") session:17/19"
+            string = 'https://search.parliament.uk/search?q=subject_ses:('+stringy+") session:17/19"
 
     return render_template('resultpage.html', string = string, numofterms = numofterms, termtosearch = TermToSearch, termsandids = zip(result,termlist))
 if __name__ == "__main__":
