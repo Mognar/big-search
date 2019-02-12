@@ -1,22 +1,23 @@
 <html>
     <head>
-        <title>Flask app</title>
+    <title>Flask app</title>
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/main.css') }}">
     </head>    
    <body>
         <h1>Hi, search person!</h1>
         <h2> Your search for {{ termtosearch }} brought back {{ numofterms }} terms: </h2>
-        {% for i, t in termsandids %}
-       <div><p class="bigdiv">{{ t }}: {{ i }}; {% endfor %}</p>
+       <div class="bigdiv"> 
+       {% for i, t in termsandids %}
+       <p class="bigdiv">{{ t }}: {{ i }}; </p>{% endfor %}
        {% if numofterms > 200 %}
         <h3>There are too many terms for one search, so we've split it into two searches for you:</h3>
         {% for s in string %}
-         <p>Internal Search: <a href=https://search.parliament.uk/search?q={{ s }}>https://search.parliament.uk/search?q={{ s }}</a> 
-           External Search: <a href=https://search-material.parliament.uk/search?Parameters.Fields.all={{ s }}>https://search-material.parliament.uk/search?q={{ s }}</p>
-        {% endfor %} </div>  
+         <p><b>Internal Parliamentary Search: </b> <a href=https://search.parliament.uk/search?q={{ s }}>https://search.parliament.uk/search?q={{ s }}</a> <br /><br />
+           <b>External Parliamentary Search: </b> <a href=https://search-material.parliament.uk/search?Parameters.Fields.all={{ s }}>https://search-material.parliament.uk/search?q={{ s }}</p>
+        {% endfor %}
         {% else %}
-        Internal Parliamentary Search: <a href=https://search.parliament.uk/search?q={{ string }}>https://search.parliament.uk/search?q={{ string }}</a> <br />
-        External Parliamentary Search: <a href=https://search-material.parliament.uk/search?Parameters.Fields.all={{ string }}>https://search-material.parliament.uk/search?q={{ string }}</a> <br /></div>
-        
+       <b>Internal Parliamentary Search: </b> <a href=https://search.parliament.uk/search?q={{ string }}>https://search.parliament.uk/search?q={{ string }}</a> <br /><br />
+       <b>External Parliamentary Search: </b><a href=https://search-material.parliament.uk/search?Parameters.Fields.all={{ string }}>https://search-material.parliament.uk/search?q={{ string }}</a> <br /></div>
         {% endif %}
     </body>
 </html>
