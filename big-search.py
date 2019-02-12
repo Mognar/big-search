@@ -223,37 +223,3 @@ if __name__ == "__main__":
   app.debug = True
   app.run(port=5006, use_reloader=False)
 
-
-
-# In[9]:
-
-
-first_names = ['Steve', 'Jane', 'Sara', 'Mary','Jack','Bob', 'Bily', 'Boni', 'Chris','Sori', 'Will', 'Won','Li']
-    
-def chunks(l, n):
-    # For item i in a range that is a length of l,
-    for i in range(0, len(l), n):
-        # Create an index range for l of n items:
-        yield l[i:i+n]
-
-list(chunks(first_names, len(l)/2))
-
-
-# In[ ]:
-
-
-# Remove duplicates from this list.
-result = remove_duplicates(ids)
-termlist = remove_duplicates(terms)
-print(termlist)
-stringy = ' OR '.join(result)
-if j['result']['items'][0]['class'] == "":
-    if j['result']['items'][0]['attribute'] == "TPG":
-        print('topic_ses:('+stringy+") session:17/19")
-    else:
-        print('subject_ses:('+stringy+") session:17/19")
-elif j['result']['items'][0]['class'] == "TPG":
-    print('topic_ses:('+stringy+") session:17/19")
-else:
-    print('subject_ses:('+stringy+") session:17/19")
-
