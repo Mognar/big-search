@@ -24,6 +24,7 @@ def hello():
 @app.route('/resultpage', methods=['POST'])
 def my_form_post():
     TermToSearch = request.form['Term']
+    TermToSearch1 = TermToSearch.replace(' ','%20')
     ExcludeTopicTerms = request.form['TPGAvoid']
     print(ExcludeTopicTerms)
 #Replace "Housing" with whichever term you would like to search on. 
@@ -36,9 +37,9 @@ def my_form_post():
 
     #This bit puts the term into a search on data.parliament.uk
     if ExcludeTopicTerms == '1':
-        slug = "http://eldaddp.azurewebsites.net/terms.json?prefLabel={}&maxEx-attribute=TPG".format(TermToSearch)
+        slug = "http://eldaddp.azurewebsites.net/terms.json?prefLabel={}&maxEx-attribute=TPG".format(TermToSearch1)
     else:
-        slug = "http://eldaddp.azurewebsites.net/terms.json?prefLabel={}".format(TermToSearch)
+        slug = "http://eldaddp.azurewebsites.net/terms.json?prefLabel={}".format(TermToSearch1)
     print(slug)
     r=requests.get(slug)
     #If this works, the following line should output the full text of the 
