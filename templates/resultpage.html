@@ -10,10 +10,13 @@
        {% if numofterms > 200 %}
         <h3>There are too many terms for one search, so we've split it into two searches for you:</h3>
         {% for s in string %}
-           <p>  <a href={{ s }}>{{ s }}</a> </p>
+         <p>Internal Search: <a href=https://search.parliament.uk/search?q={{ s }}>https://search.parliament.uk/search?q={{ s }}</a> 
+           External Search: <a href=https://search-material.parliament.uk/search?Parameters.Fields.all={{ s }}>https://search-material.parliament.uk/search?q={{ s }}</p>
         {% endfor %} </div>  
         {% else %}
-        <a href={{ string }}>{{ string }}</a> <br /></div>
+        Internal Parliamentary Search: <a href=https://search.parliament.uk/search?q={{ string }}>https://search.parliament.uk/search?q={{ string }}</a> <br />
+        External Parliamentary Search: <a href=https://search-material.parliament.uk/search?Parameters.Fields.all={{ string }}>https://search-material.parliament.uk/search?q={{ string }}</a> <br /></div>
+        
         {% endif %}
     </body>
 </html>
