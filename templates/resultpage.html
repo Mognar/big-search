@@ -10,10 +10,10 @@
        {% if numofterms > 200 %}
         <h3>There are too many terms for one search, so we've split it into two searches for you:</h3>
         {% for s in string %}
-           <p>  <a href='{{ s }}'>{{ s }}</a> </p>
+           <p>  <a href={{ s }}>{{ s }}</a> </p>
         {% endfor %} </div>  
         {% else %}
-        <a href='{{ string }}'>{{ s }}</a> <br /></div>
+        <a href={{ string }}>{{ string }}</a> <br /></div>
         {% endif %}
     </body>
 </html>
