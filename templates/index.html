@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <html>
+    <head>
+    <title>Flask app</title>
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/main.css') }}">
+    </head> 
    <body>
-   
+       <h1>Big Search</h1>
+       <h2>This page will build searches in Parliamentary Search for a term and all of its child terms</h2>
+       
       <form action = "/resultpage" method = "POST">
          <p>Term to search:</br> <input type = "text" name = "Term" /></p>
-         <p>TPGAvoid: Yes 1, No 0</br> <input type = "text" name = "TPGAvoid" /></p>
-        <input type="submit" value="Submit for glory">
+    <p>Topic terms are a set of 300 broad terms that make up the Topics taxonomy. You can avoid searching for these terms using the box below. </p>
+         <p>Avoid Topic Terms?: Yes 1, No 0</br> <input type = "text" name = "TPGAvoid" /></p>
+        <input type="submit" value="Submit for terms">
       </form>
       
    </body>
