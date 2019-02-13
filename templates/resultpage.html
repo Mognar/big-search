@@ -8,7 +8,7 @@
         <h2> Your search for {{ termtosearch }} brought back {{ numofterms }} terms: </h2>
        <div class="bigdiv"> 
        {% for i, t in termsandids %}
-       <p class="bigdiv">{{ t }}: {{ i }}; </p>{% endfor %}
+       <p class="bigdiv"><span class="term">{{ t }}:</span> {{ i }}; </p>{% endfor %}
        {% if numofterms > 200 %}
         <h3>There are too many terms for one search, so we've split it into two searches for you:</h3>
         {% for s in string %}
