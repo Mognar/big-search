@@ -15,3 +15,13 @@ a {
     white-space: -o-pre-wrap; /* Opera 7 */    
     word-wrap: break-word; /* Internet Explorer 5.5+ */
 }
+
+input {
+height: 30px;
+width: 50%;
+font-size: 1.4em;
+}
+
+.term {
+font-weight: bold;
+}
